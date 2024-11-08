@@ -1,5 +1,4 @@
 #include "ProcessCommandLine.hpp"
-#include "RunCaesarCipher.hpp"
 #include "TransformChar.hpp"
 #include "CaesarCipher.hpp"
 #include "CipherMode.hpp"
