@@ -56,7 +56,7 @@ CaesarCipher::CaesarCipher(const std::string& key) : key_{0}
 // using the member function of the CaesarCipher class, applyCipher,
 // and using the other data members, key_, alphabet_, and alphabetSize_,
 // the same code as was in the RunCaesarCipher files previously, with the naming adjustments
-std::string CaesarCipher::applyCipher(const std::string& inputText, const bool encrypt) const
+std::string CaesarCipher::applyCipher(const std::string& inputText, const CipherMode cipherMode) const
 {
 
     //Create the output string
@@ -72,14 +72,19 @@ std::string CaesarCipher::applyCipher(const std::string& inputText, const bool e
                 // Apply the appropriate shift (depending on whether we're encrypting
                 // or decrypting) and determine the new character
                 // Can then break out of the loop over the alphabet
-                if (encrypt) {
-                    processedChar = alphabet_[(i + key_) % alphabetSize_];
-                } else {
-                    processedChar = alphabet_[(i + alphabetSize_ - key_) %
-                                             alphabetSize_];
+
+                // replace loop with switch since now using the CipherMode enumerate
+                switch (cipherMode){
+                    case CipherMode::Encrypt:
+                        processedChar = alphabet_[(i + key_) % alphabetSize_];
+                        break;
+                    case CipherMode::Decrypt:
+                        processedChar = alphabet_[(i + alphabetSize_ - key_) % alphabetSize_];
+                        break;
                 }
                 break;
             }
+            
         }
 
         // Add the new character to the output text

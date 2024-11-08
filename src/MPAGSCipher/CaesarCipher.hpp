@@ -5,6 +5,10 @@
 #include <vector>
 #include <cctype>
 #include <cstddef> // need this to include std::size_t type
+
+// include header to get the CipherMode
+#include "CipherMode.hpp"
+
 class CaesarCipher {
   public:
  // create a new caesarcipher with the given key
@@ -23,7 +27,9 @@ class CaesarCipher {
     // a string and returns the resulting string
     //using the data member key above
 
-    std::string applyCipher(const std::string& inputText, const bool encrypt) const;
+    // use the CipherMode enumerate (provided from the header function)
+    // to give us the mode of encryption
+    std::string applyCipher(const std::string& inputText, const CipherMode cipherMode) const;
 
   private:
 

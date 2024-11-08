@@ -4,6 +4,10 @@
 #include <string>
 #include <vector>
 #include <cctype>
+
+#include "CipherMode.hpp"
+//so we can specify encrypt/decrypt
+
 // can create a new type (a struct) called ProgramSettings containing all the command line info
 struct ProgramSettings {
     // indicates presence of help flag in the args
@@ -17,7 +21,7 @@ struct ProgramSettings {
     // key to be used in encrypt/decrypt routine
     std::string cipherKey;
     // flag indicating whether cipher should encrypt or decrypt 
-    bool encrypt;
+    CipherMode cipherMode;
 };
 
 // can now group this struct into an arg for the processCommandLine function so that both appear in the header

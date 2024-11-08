@@ -2,6 +2,7 @@
 #include "RunCaesarCipher.hpp"
 #include "TransformChar.hpp"
 #include "CaesarCipher.hpp"
+#include "CipherMode.hpp"
 // include all the headers of functions that are used in conjunction with the main
 // can set the default values for the struct initially, which will change if the user input flags differ
 
@@ -19,7 +20,7 @@ int main(int argc, char* argv[])
 
     // Options that might be set by the command-line arguments
     // using our new ProgramSettings type
-    ProgramSettings settings {false, false, "","","", true};
+    ProgramSettings settings {false, false, "","","", CipherMode::Encrypt};
 
     // Process command line arguments
     const bool cmdLineStatus{
@@ -102,7 +103,7 @@ int main(int argc, char* argv[])
     // Run the Caesar cipher (using the specified key and encrypt/decrypt flag) on the input text
     // we then create our outputText (from the encryption process) from applying the 
     // applyCipher member function within the cipher object
-    std::string outputText{cipher.applyCipher(inputText,settings.encrypt)};
+    std::string outputText{cipher.applyCipher(inputText,settings.cipherMode)};
 
     
 
