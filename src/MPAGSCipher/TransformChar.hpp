@@ -2,7 +2,7 @@
 #define MPAGSCIPHER_TRANSFORMCHAR_HPP
 
 #include <string>
-
+#include <cctype>
 //! Transliterate char to string
 std::string transformChar(const char inputChar);
 

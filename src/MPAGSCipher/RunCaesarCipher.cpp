@@ -2,7 +2,8 @@
 
 #include <string>
 #include <vector>
-
+#include <cctype>
+#include <cstddef>
 std::string runCaesarCipher(const std::string& inputText, const std::size_t key,
                             const bool encrypt)
 {
